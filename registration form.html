@@ -1,0 +1,62 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Registration_Form</title>
+    </head>
+    <style>
+        .field{
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .option{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #submit{
+            width: 100%;
+            font-weight: bold;
+        }
+    </style>
+    <body style="margin-left:50px ; margin-right: 50px;">
+    <h1 style="text-align:center;">Registration Form</h1>
+        <form action="action_form.php" method="post">
+            <label for="rollno" class="field">Roll no. (101-200)</label><br>
+            <input type="text" id="rollno" name="rollno" min="101" max="200" required placeholder="Enter Roll no."><br><br>
+            <label for="name" class="field">Name</label><br>
+            <input type="text" id="name" name="name" pattern="[A-Za-z ]+" required placeholder="Enter Name"><br><br>
+            <label for="dateofbirth" class="field"> Date of Birth:</label><br>
+            <input type="date" id="dateofbirth" name="dateofbirth" required><br><br>
+            <label for="gender" class="field">Gender</label><br>
+            <label for="male" class="option">Male</label>
+            <input type="radio" id="male" name="gender" value="Male" required><br>
+            <label for="female" class="option">Female</label>
+            <input type="radio" id="female" name="gender" value="Female"><br>
+            <label for="other" class="option">Other</label>
+            <input type="radio" id="other" name="gender" value="Other"><br><br>
+            <label for="email" class="field">Email</label><br>
+            <input type="email" id="email" name="email" required placeholder="Enter email address"><br><br>
+            <label for="password" class="field">Password</label><br>
+            <input type="password" id="password" name="password" required placeholder="Enter Password"><br><br>
+            <label for="Contact" class="field">Contact</label><br>
+            <input type="number" id="Contact" name="Contact" maxlength="10" required placeholder="Enter contact no."><br><br>
+            <label for="address" class="field">Address</label><br>
+            <textarea id="address" rows="4" cols="30" name="address" required placeholder="Enter Address"></textarea><br><br>
+            <label for="paymentmode" class="field">Mode of Payment:</label><br>
+            <input type="checkbox" id="cash" name="paymentmode">
+            <label for="cash" class="option">Cash</label><br>
+            <input type="checkbox" id="card" name="paymentmode">
+            <label for="card" class="option">Card</label><br>
+            <input type="checkbox" id="upi" name="paymentmode">
+            <label for="upi" class="option">UPI</label><br><br>
+            <label for="locality" class="field">Locality:</label><br>
+            <input list="locality" name="locality" id="locality" required placeholder="Enter Locality"><br>
+            <datalist id="locality";>
+                <option value="Local"></option>
+                <option value="NRI"></option>
+            </datalist><br><br>
+            <label for="file" class="field">Upload passport size photo</label><br>
+            <input type="file" id="file" name="file" required><br><br>
+            <button type="submit" id="submit" onclick="alert('Your form has been submitted!!')">Submit Form</button><br><br><br><br><br>
+        </form>
+    </body>
+</html>

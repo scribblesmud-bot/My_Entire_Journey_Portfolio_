@@ -1,0 +1,110 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Meal_Booking_Application</title>
+    </head>
+        <style>
+            body{
+                margin-left: 50px;
+                margin-right: 50px;
+                margin-top: 15px;
+                font-family: Consolas;
+                line-height: 1.5;
+            }
+            .heading{
+                text-align: center;
+                font-weight: bold;
+                text-decoration: overline underline;
+                background-color: #FFA384;
+                padding: 10px;
+            
+            }
+            .para{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .mainform{
+                background-color: #E7F2F8;
+                border-radius: 20px;
+                padding: 20px;
+                border-style: dashed;
+                border-color: #74BDCB;
+                font-weight: bold;
+                margin-bottom: 10px;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                position: relative;
+                right:20px;
+                
+            }
+            .imagediv{
+                display:inline-flex;
+                height:200px;
+                width:300px;
+                justify-content: center; 
+            }
+            .videodiv{
+                background-color:#74BDCB;
+                border-radius: 20px;
+                justify-content: center;
+                display: inline-block;
+                padding: 20px;
+                position: absolute;
+            }
+        a:link{
+            background-color: #E7F2F8;
+            color: black;
+            font-weight: bold;
+            border-style: solid;
+            border-color: #189AB4;
+            border-width: 5px;
+        }
+        a:visited{
+            background-color: #E7F2F8;    
+        }
+        a:hover{
+            background-color: #FFA384;
+        }
+        a:active{
+            font-weight: bolder;
+            border-color: #189AB4;
+            border-width: 6px;
+        }
+        </style>
+            <body>
+                <h1 class="heading">Meal Booking Application</h1>
+                <h4 class="para">Fill your details to order a meal!!<br>(All your data is secure)</h4>
+                <div class="mainform">
+                  <form>
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" style="width: 50%;" required><br>
+                    <label for="meal_type">Meal Type:</label>
+                    <select id="meal_type" name="meal_type" style="width: 50%;" required>
+                        <option value="breakfast" name="meal_type">Breakfast</option>
+                        <option value="lunch" name="meal_type">Lunch</option>
+                        <option value="dinner" name="meal_type">Dinner</option>
+                    </select>
+                    <div class="imagediv">
+                        <img src="C:\Users\Mirza\Downloads\bweakfast.jpg" alt="Breakfast">
+                        <img src="C:\Users\Mirza\Downloads\wunch.jpg" alt="Lunch">
+                        <img src="C:\Users\Mirza\Downloads\Dinnew.jpeg" alt="Dinner">
+                    </div><br>
+                    <label for="address">Address:</label><br>
+                    <textarea name="address" rows="4" cols="20" width="50%" required></textarea><br>
+                    <label for="contact">Contact Number:</label><br>
+                    <input type="number" id="contact" name="contact" required><br>
+                    <input type="submit" onclick="alert('Your info has been submitted to the FBI')"; value="Submit!!" style="width:100%">
+                  </form>
+                </div>
+                <div class="videodiv">
+                    <iframe src="C:\Users\Mirza\Downloads\11903942-2160-3646-60fps_1pRCpQM0.mp4"; justify-content:center;></iframe><br>
+                    <div>
+                    <a href="https://www.youtube.com/watch?v=6S08RNv7fSQ&list=PLuIPsbth1SwV113TialgMgkzfqhFVLVKr&index=21" target="_blank">Watch a vid while you're here!!</a>
+                    </div>
+                </div>
+            </body>
+</html>
+
+
+            
