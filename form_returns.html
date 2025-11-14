@@ -1,0 +1,169 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <title>Form</title>
+        <style>
+            div
+            {
+                background-color: whitesmoke;
+                margin: 30px 70px 30px 70px;
+                box-shadow: 5px 5px lightgray;
+                padding: 20px;
+                border-top: #2E3233 solid 1px;
+            }
+            body
+            {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                color: #2E3233;
+                line-height: 10px;
+                font-size: x-large;
+                font-weight: bold;
+            }
+            .field
+            {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-weight: bold;
+                font-size: larger;
+                margin-top: 3px;
+                margin-bottom: 3px;
+            }
+            .option
+            {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-weight: bold;
+                font-size: 22px;
+            }
+            input
+            {
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+            input[type="radio"]
+            {
+                cursor: pointer;
+            }
+            input[type="submit"]
+            {
+                background-color: #4A4A4A;
+                color: whitesmoke;
+                border: none;
+                width: 100%;
+                padding: 10px 25px;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: large;
+                font-weight: bold;
+                cursor: pointer
+            }
+            input[type="submit"]:hover
+            {
+                background-color: #565656;
+                transition: background 0.4s;
+            }
+            .message 
+            {
+                margin-top: 15px;
+                font-weight: bold;
+                color: #2E3233;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="action_form.php" method="post" onsubmit="return formvalidate()">
+                <label for="Name" class="field">
+                    Name:
+                </label>
+                <br>
+                <input type="text" id="name" name="Name" pattern="[A-Za-z ]+" placeholder="Enter your name">
+                <hr>
+                <br>
+                <label for="Email" class="field">
+                    Email Address:
+                </label>
+                <br>
+                <input type="email" id="email" name="Email" placeholder="Enter email address">
+                <hr>
+                <br>
+                <label for="Pwd" class="field">
+                    Password:
+                </label>
+                <br>
+                <input type="password" id="password" name="Pwd" placeholder="Enter password">
+                <br>
+                <hr>
+                <label for="Cnfrm" class="field">
+                    Confirm Password:
+                </label>
+                <br>
+                <input type="password" id="Confirm" name="Cnfrm" placeholder="Enter password">
+                <br>
+                <hr>
+                <label for="gender" class="field">
+                    Gender:
+                </label>
+                <br>
+                <br>
+                <label for="male" class="option">
+                    Male
+                </label>
+                <input type="radio" id="male" name="gender" value="Male"><br>
+                <label for="female" class="option">
+                    Female
+                </label>
+                <input type="radio" id="female" name="gender" value="Female"><br>
+                <label for="other" class="option">
+                    Other
+                </label>
+                <input type="radio" id="other" name="gender" value="Other"><br>
+                <hr>
+                <label for="country" class="field">Country:</label><br><br>
+                <select id="country" name="Country" onchange="selectcountry()">
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                </select>
+                <br>
+                <hr>
+                <input type="submit" id="Submit" value="Submit Form">
+            </form>
+        </div>
+        <div id="countryDiv">
+        </div>
+        <script>
+            function formvalidate()
+            {
+                let selectedCountry=document.getElementById("country").value;
+                document.getElementById("countryDiv").textContent="Selected country is: "+selectedCountry;
+            
+                let pwdl=document.getElementById("password").value.length;
+                let cnfrm=document.getElementById("Confirm").value;
+                if(cnfrm!=document.getElementById("password").value)
+                {
+                    alert("Passwords do not match.");
+                    return false;
+                }
+                if(pwdl<8)
+                {
+                    alert("Password length must be at least 8 characters.");
+                    return false;
+                }
+            
+                let name=document.getElementById("name").value;
+                let email=document.getElementById("email").value;
+                let genderMale=document.getElementById("male").checked;
+                let genderFemale=document   .getElementById("female").checked;
+                let genderOther=document.getElementById("other").checked;
+                let country=document.getElementById("country").value;
+                if(name=="" || email=="" || (!genderMale && !genderFemale && !genderOther) || country=="")
+                {
+                    alert("Please fill all the fields.");
+                    return false;
+                }
+                alert("Form submitted successfully!");  
+                return true;
+            }
+        </script>
+    </body>
+</html>

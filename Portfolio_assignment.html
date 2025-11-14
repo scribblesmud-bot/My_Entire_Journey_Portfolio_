@@ -1,0 +1,148 @@
+<!Doctype html>
+<html lang="en">    
+    <head>        
+        <meta charset="UTF-8"> <!--For accessibility-->       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <title>Porfolio Page</title>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <style>
+            html{
+                scroll-behavior: smooth;
+                transition: smooth-scroll 1.5s;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                background-color: #f4f4f4;
+                text-align: center;
+                justify-content: center;
+            }
+            .whole-page{
+                margin-bottom: 70px;
+                background-image: url(https://images.pexels.com/photos/13481481/pexels-photo-13481481.jpeg);
+                width: 100%;
+                height: auto;
+                background-size: cover;
+                background-position: center;
+                padding: 20px;
+            }
+            header{
+                background-color: #35424a;
+                color: #ffffff;
+                padding: 20px 0;
+                word-spacing: 20px;
+                letter-spacing: 2px;
+                font-size: 24px;
+                font-family: Climate Crisis;
+                cursor: pointer;
+            }
+            h3{
+                font-family: Lexend Zetta;
+                text-align: left;
+            }
+            h3:hover{
+                transform: scale(1.02);
+                transition: transform 0.5s;
+                transition: font-size 0.5s;
+                font-size: 120%;
+                font-weight:1000;
+            }
+            header:hover{
+                transform: scale(1.05);
+                transition: transform 0.5s;
+            }
+            .card-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                max-width: 600px; 
+                margin: 40px auto;
+            }
+            .card {
+                text-decoration: none;
+                color: inherit;
+                display: block;
+                cursor: pointer;
+                padding: 20px;
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                font-family: 'Google Sans Code', sans-serif;
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .card:hover { 
+                transform: scale(1.05);
+                background-color: #35424a;
+                color: #ffffff;
+                transition: background-color 0.3s;
+                transition: color 0.8s;
+                transition: transform 0.7s;
+            }
+            .detailed-card {
+                display: block;
+                max-width: 560px;
+                margin: 20px auto;
+                background-color: #ffffff;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                font-family: 'Google Sans Code', sans-serif;
+                text-align: left;
+                cursor: pointer;
+            }
+            footer{
+                background-color: #35424a;
+                color: #ffffff;
+                text-align: center;
+                padding: 10px 0;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
+    </head>    
+    <body> 
+        <header>            
+            <h1>My Portfolio</h1>        
+        </header>
+        <div class="whole-page">     
+        <div class="card-grid">
+            <a href="#about" class="card"><h2>About Me</h2></a>
+            <a href="#skills" class="card"><h2>Skills</h2></a>
+            <a href="#contact" class="card"><h2>Contact</h2></a>
+            <a href="#aboutPage" class="card"><h2>About Page</h2></a>
+        </div>
+        <div class="detailed-card" id="about">               
+              <h3>About Me!</h3>
+              <p>My name is Mirza Mudabbir, a student of BCA Sem-I</p>  
+        </div>
+        <div class="detailed-card" id="skills">               
+              <h3>Skills!</h3>
+              <p>HTML, CSS, JavaScript, C</p>
+        </div>
+        <div class="detailed-card" id="contact">               
+              <h3>Contact Me!</h3>
+              <p>Email: scribbles.mudabbir@gmail.com<br>
+                Phone: +91 7893527468</p>
+        </div>
+        <div class="detailed-card" id="aboutPage">          
+              <h3>About Page!</h3>
+              <p>This is my portfolio page created as a part of my web development learning journey.</p>
+        </div>
+        </div>
+        <footer>            
+            <p>&copy; 2025 My Portfolio</p>        
+        </footer>
+    </body>
+</html>
+

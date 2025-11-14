@@ -1,0 +1,97 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="C:\Users\Mirza\Downloads\calc_favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Roboto;
+            margin: 50px;
+            justify-content: center;
+            text-align: center;
+        }
+        .box {
+            border: 2px solid lightblue;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+        input[type="text"] {
+            width: 200px;
+            height: 30px;
+            font-size: 16px;
+            color: darkorchid;
+            margin-bottom: 10px;
+            text-align: right;
+            border-radius: 5px;
+            border:none;
+            background-color: #f1f1f1;
+        }
+        button {
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
+            margin: 2px;
+            border-radius: 5px;
+            border: none
+        }
+        button:hover {
+            background-color: lightgray;
+            cursor: pointer;
+        }
+        button:active {
+            background-color: gray;
+            color: white;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <div class="box">
+    <input type="text" id="display" placeholder="Enter expression"></input>
+    <div>
+        <button onclick="show('7')">7</button>
+        <button onclick="show('8')">8</button>
+        <button onclick="show('9')">9</button>
+        <button onclick="show('/')">/</button>
+    </div>
+    <div>
+        <button onclick="show('4')">4</button>
+        <button onclick="show('5')">5</button>
+        <button onclick="show('6')">6</button>
+        <button onclick="show('*')">*</button>
+    </div>
+    <div>
+        <button onclick="show('1')">1</button>
+        <button onclick="show('2')">2</button>
+        <button onclick="show('3')">3</button>
+        <button onclick="show('-')">-</button>
+    </div>
+    <div>
+        <button onclick="show('0')">0</button>
+        <button onclick="clearDisplay()">Clr</button>
+        <button onclick="calculateResult()">=</button>
+        <button onclick="show('+')">+</button>
+    </div>
+    <script>
+        function show(value) {
+            document.getElementById('display').value += value;
+        }
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+        function calculateResult() {
+            let expression = document.getElementById('display');
+            let result = eval(expression.value);
+            expression.value = result;
+        }
+    </script>
+</body>
+</html>
