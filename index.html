@@ -1,125 +1,346 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>My Journey Portfolio</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Sixtyfour&display=swap" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&family=Sixtyfour&display=swap" rel="stylesheet">
-    <style>
-      body{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        padding:20px;
-        margin: 20px 60px 40px 60px;
-        background-image: url("https://images.pexels.com/photos/8271921/pexels-photo-8271921.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-        background-size: cover;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: center;
+
+<head>
+  <title>My Journey Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Climate+Crisis:YEAR@1979&family=Erica+One&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&family=Sixtyfour&display=swap"
+    rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'BBH Bartle';
+      font-weight: lighter;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+        url("https://images.pexels.com/photos/18543327/pexels-photo-18543327/free-photo-of-dunes-on-desert.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .hero {
+      height: 220vh;
+      /* scroll space */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quote {
+      position: sticky;
+      top: 40%;
+      font-size: clamp(3rem, 8vw, 7rem);
+      text-align: center;
+      font-family: Onyx;
+      font-weight: lighter;
+      letter-spacing: 2px;
+      color: white;
+    }
+
+    .project {
+      min-height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .project:not(:first-of-type) {
+      min-height: 60vh;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      bottom: 10vh;
+      width: 120px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .card {
+      display: block;
+      width: 60%;
+      max-width: 600px;
+      padding: 4rem 3rem;
+      min-height: 250px;
+
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1);
+
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.35),
+          rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-size: xx-large;
+    }
+
+    .card p {
+      font-size: 1.0rem;
+      opacity: 0.8;
+      max-width: 400px;
+      margin: 0 auto;
+      font-family: system-ui, sans-serif;
+      font-weight: bold;
+    }
+
+    .card:hover {
+      transform: translateY(-20px);
+      filter: grayscale(0%);
+    }
+
+    a.card {
+      cursor: pointer;
+    }
+
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+
+      width: 44px;
+      height: 44px;
+
+      border-radius: 50%;
+      border: none;
+
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(6px);
+
+      color: white;
+      font-size: 1.2rem;
+
+      cursor: pointer;
+      z-index: 1000;
+
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* hover feedback */
+    #musicBtn:hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    /* playing state */
+    #musicBtn.playing {
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+      content: "♫";
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <h1 class="quote">❝Built one page at a time.❞</h1>
+  </section>
+
+
+  <section class="project">
+    <a href="links test.html" target="_blank" class="card">
+      <div class="icon">🔗</div>
+      <h3>FIRST HTML PAGE</h3>
+      <p>My very first HTML experiment. Humble beginnings.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="block and inline elements.html" target="_blank" class="card">
+      <div class="icon">📦</div>
+      <h3>BLOCK & INLINE ELEMENTS</h3>
+      <p>Understanding how elements behave in layouts.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="students quiz page.html" target="_blank" class="card">
+      <div class="icon">📝</div>
+      <h3>STUDENTS QUIZ PAGE</h3>
+      <p>A simple quiz page built with HTML.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="HTML images and links with basic styling.html" target="_blank" class="card">
+      <div class="icon">🖼️</div>
+      <h3>IMAGES & LINKS</h3>
+      <p>Practicing images, links, and basic styling.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="quiz page classwork.html" target="_blank" class="card">
+      <div class="icon">📚</div>
+      <h3>QUIZ CLASSWORK</h3>
+      <p>A class assignment quiz layout.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="Tiffin Service Classwork.html" target="_blank" class="card">
+      <div class="icon">🍱</div>
+      <h3>TIFFIN SERVICE</h3>
+      <p>A mock tiffin service webpage.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="tiffin menu with images frame.html" target="_blank" class="card">
+      <div class="icon">📖</div>
+      <h3>TIFFIN MENU</h3>
+      <p>Menu layout using images and iframe.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="form filling practice!.html" target="_blank" class="card">
+      <div class="icon">✍️</div>
+      <h3>FORM PRACTICE</h3>
+      <p>Basic form input practice.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="four div blocks.html" target="_blank" class="card">
+      <div class="icon">⬛</div>
+      <h3>FOUR DIV BLOCKS</h3>
+      <p>Simple layout practice with divs.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="table homework" target="_blank" class="card">
+      <div class="icon">📊</div>
+      <h3>TABLE HOMEWORK</h3>
+      <p>HTML tables for structured data.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="meal booking application.html" target="_blank" class="card">
+      <div class="icon">🍽️</div>
+      <h3>MEAL BOOKING APP</h3>
+      <p>A basic meal booking interface.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="NEWSPAPER.html" target="_blank" class="card">
+      <div class="icon">📰</div>
+      <h3>NEWSPAPER</h3>
+      <p>A newspaper-style webpage layout.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="registration form.html" target="_blank" class="card">
+      <div class="icon">🧾</div>
+      <h3>REGISTRATION FORM</h3>
+      <p>User registration form example.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="Styled_Links_Assignment.html" target="_blank" class="card">
+      <div class="icon">🎨</div>
+      <h3>STYLED LINKS</h3>
+      <p>Hover effects and styled hyperlinks.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="Semantic_elements_assignment.html" target="_blank" class="card">
+      <div class="icon">🏗️</div>
+      <h3>SEMANTIC ELEMENTS</h3>
+      <p>Using proper semantic HTML tags.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="form_returns.html" target="_blank" class="card">
+      <div class="icon">🔁</div>
+      <h3>FORM RETURNS</h3>
+      <p>Understanding form submission behavior.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="Portfolio_assignment.html" target="_blank" class="card">
+      <div class="icon">🧠</div>
+      <h3>PORTFOLIO ASSIGNMENT</h3>
+      <p>An early personal portfolio attempt.</p>
+    </a>
+  </section>
+
+  <section class="project">
+    <a href="CALCULATOR!!.html" target="_blank" class="card">
+      <div class="icon">🧮</div>
+      <h3>CALCULATOR</h3>
+      <p>A working calculator built in HTML.</p>
+    </a>
+  </section>
+
+  <button id="musicBtn">♪</button>
+
+  <audio id="music" src="ambience_website.mp3" loop></audio>
+
+  <script>
+    const btn = document.getElementById("musicBtn");
+    const music = document.getElementById("music");
+
+    btn.onclick = () => {
+      if (music.paused) {
+        music.volume = 0.3;
+        music.play();
+        btn.classList.add("playing");
+      } else {
+        music.pause();
+        btn.classList.remove("playing");
       }
-      h1
-      {
-        text-align: center;
-        color: white;
-        font-family: 'Climate Crisis', sans-serif;
-        background-color: rgba(0,0,0,0.4);
-        font-size: 60px;
-        font-weight: 200;
-        padding: 20px;
-        letter-spacing: 2px;
-        word-spacing: 4px;
-        animation: fadeIn 2.2s forwards;
-      }
-      h1:hover
-      {
-        
-      }
-      h2
-      {
-        margin-top: 40px;
-        text-align: center;
-        color: white;
-        font-family: 'Press Start 2P', cursive;
-        font-size: 36px;
-        font-weight: 600;
-        animation: fadeIn 2s forwards;
-      }
-      ul
-      {
-        list-style-type: none;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
-        gap: 12px;
-        margin: 20px 0;
-        text-align: center;
-      }
-      li
-      {
-        margin: 10px 0;
-        padding: 15px;
-        animation: fadeIn 1s forwards;
-        background: radial-gradient(45deg, #f0f0f0, #d9d9d9);
-        background-color: white;
-      }
-      li:hover {
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        transform: scale(1.1);
-        transition: transform 0.8s, box-shadow 0.3s, background 0.3s;
-        cursor: pointer;        
-      }
-      a {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-        font-family: 'Google Sans Code', monospace;
-        font-size: larger;
-      }
-      a:hover {
-        color: #4E545C;
-        transition: transform 0.3s, color 0.3s;
-        transform: scale(1.05);
-      }
-      p {
-        margin: 5px 0 0 0;
-        color: #555;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-    </style>
-  </head>
-  <body>
-  
-  <h1>My Journey Portfolio</h1>
-  <h2>My HTML Projects:</h2>
-  
-  <ul>
-    <li><a href="links test.html" target="_blank">First HTML page</a></li>
-    <li><a href="block and inline elements.html" target="_blank">Block and inline elements</a></li>
-    <li><a href="students quiz page.html" target="_blank">Students Quiz Page</a></li>
-    <li><a href="HTML images and links with basic styling.html" target="_blank">Images and links with basic styling</a></li>
-    <li><a href="quiz page classwork.html" target="_blank">Quiz page classwork</a></li>
-    <li><a href="Tiffin Service Classwork.html" target="_blank">Tiffin Service classwork</a></li>
-    <li><a href="tiffin menu with images frame.html" target="_blank">Tiffin Menu with iframe</a></li>
-    <li><a href="form filling practice!.html" target="_blank">Form filling practice!</a></li>
-    <li><a href="four div blocks.html" target="_blank">Four div blocks</a></li>
-    <li><a href="table homework" target="_blank">Table homework</a></li>
-    <li><a href="meal booking application.html" target="_blank">Meal booking application</a></li>
-    <li><a href="NEWSPAPER" target="_blank">Newspaper-style page</a></li>
-    <li><a href="registration form.html" target="_blank">Example registration form</a></li>
-    <li><a href="Styled_Links_Assignment.html" target="_blank">Styled Links Assignment</a></li>
-    <li><a href="Semantic_elements_assignment.html" target="_blank">Semantic Elements Assignment</a></li>
-    <li><a href="meal booking application.html" target="_blank">Meal booking application</a></li>
-    <li><a href="form_returns.html" target="_blank">Form Returns</a></li>
-    <li><a href="Portfolio_assignment.html" target="_blank">Portfolio Assignment</a></li>
-    <li><a href="CALCULATOR!!.html" target="_blank">Working Simple Calculator</a></li>
-  </ul>
-  
+    };
+  </script>
+
+
 </body>
+
 </html>
