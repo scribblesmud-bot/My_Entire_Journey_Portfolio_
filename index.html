@@ -19,13 +19,23 @@
       margin: 0;
       font-family: 'BBH Bartle';
       font-weight: lighter;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-        url("https://images.pexels.com/photos/18543327/pexels-photo-18543327/free-photo-of-dunes-on-desert.jpeg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background: rgba(255, 255, 255, 0.5);
+      position: relative;
+      z-index: 0;
     }
+
+
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      z-index: -2;
+    }
+
 
     .hero {
       height: 220vh;
@@ -103,9 +113,23 @@
     }
 
     .icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
+    .icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      /* makes dark icons white */
+      opacity: 0.9;
+    }
+
 
     .card h3 {
       letter-spacing: 0.2em;
@@ -128,9 +152,36 @@
       filter: grayscale(0%);
     }
 
+    .card:hover .icon img,
+    .card:hover h3,
+    .card:hover p {
+      transform: scale(1.1);
+      transition: transform 0.5s ease;
+      opacity: 1;
+    }
+
+
     a.card {
       cursor: pointer;
     }
+
+    .closing {
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .closing p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.5rem;
+      font-weight: bolder;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: system-ui, sans-serif;
+      text-decoration: overline 2px rgba(255, 255, 255, 0.5);
+    }
+
 
     #musicBtn {
       position: fixed;
@@ -166,10 +217,21 @@
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
       content: "♫";
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bg-video {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="index-background-vid.mp4" type="video/mp4">
+  </video>
+
 
   <section class="hero">
     <h1 class="quote">❝Built one page at a time.❞</h1>
@@ -178,7 +240,10 @@
 
   <section class="project">
     <a href="links test.html" target="_blank" class="card">
-      <div class="icon">🔗</div>
+      <div class="icon">
+        <img src="1-square.svg" alt="Project link icon">
+      </div>
+
       <h3>FIRST HTML PAGE</h3>
       <p>My very first HTML experiment. Humble beginnings.</p>
     </a>
@@ -186,7 +251,10 @@
 
   <section class="project">
     <a href="block and inline elements.html" target="_blank" class="card">
-      <div class="icon">📦</div>
+      <div class="icon">
+        <img src="box.svg" alt="Project link icon">
+      </div>
+
       <h3>BLOCK & INLINE ELEMENTS</h3>
       <p>Understanding how elements behave in layouts.</p>
     </a>
@@ -194,7 +262,10 @@
 
   <section class="project">
     <a href="students quiz page.html" target="_blank" class="card">
-      <div class="icon">📝</div>
+      <div class="icon">
+        <img src="patch-question-fill.svg" alt="Project link icon">
+      </div>
+
       <h3>STUDENTS QUIZ PAGE</h3>
       <p>A simple quiz page built with HTML.</p>
     </a>
@@ -202,7 +273,9 @@
 
   <section class="project">
     <a href="HTML images and links with basic styling.html" target="_blank" class="card">
-      <div class="icon">🖼️</div>
+      <div class="icon">
+        <img src="image-alt.svg" alt="Project link icon">
+      </div>
       <h3>IMAGES & LINKS</h3>
       <p>Practicing images, links, and basic styling.</p>
     </a>
@@ -210,7 +283,9 @@
 
   <section class="project">
     <a href="quiz page classwork.html" target="_blank" class="card">
-      <div class="icon">📚</div>
+      <div class="icon">
+        <img src="patch-question-fill.svg" alt="Project link icon">
+      </div>
       <h3>QUIZ CLASSWORK</h3>
       <p>A class assignment quiz layout.</p>
     </a>
@@ -218,7 +293,9 @@
 
   <section class="project">
     <a href="Tiffin Service Classwork.html" target="_blank" class="card">
-      <div class="icon">🍱</div>
+      <div class="icon">
+        <img src="fork-knife.svg" alt="Project link icon">
+      </div>
       <h3>TIFFIN SERVICE</h3>
       <p>A mock tiffin service webpage.</p>
     </a>
@@ -226,7 +303,9 @@
 
   <section class="project">
     <a href="tiffin menu with images frame.html" target="_blank" class="card">
-      <div class="icon">📖</div>
+      <div class="icon">
+        <img src="menu-up.svg" alt="Project link icon">
+      </div>
       <h3>TIFFIN MENU</h3>
       <p>Menu layout using images and iframe.</p>
     </a>
@@ -234,7 +313,9 @@
 
   <section class="project">
     <a href="form filling practice!.html" target="_blank" class="card">
-      <div class="icon">✍️</div>
+      <div class="icon">
+        <img src="ui-checks.svg" alt="Project link icon">
+      </div>
       <h3>FORM PRACTICE</h3>
       <p>Basic form input practice.</p>
     </a>
@@ -242,7 +323,9 @@
 
   <section class="project">
     <a href="four div blocks.html" target="_blank" class="card">
-      <div class="icon">⬛</div>
+      <div class="icon">
+        <img src="grid-fill.svg" alt="Project link icon">
+      </div>
       <h3>FOUR DIV BLOCKS</h3>
       <p>Simple layout practice with divs.</p>
     </a>
@@ -250,7 +333,9 @@
 
   <section class="project">
     <a href="table homework" target="_blank" class="card">
-      <div class="icon">📊</div>
+      <div class="icon">
+        <img src="table.svg" alt="Project link icon">
+      </div>
       <h3>TABLE HOMEWORK</h3>
       <p>HTML tables for structured data.</p>
     </a>
@@ -258,7 +343,9 @@
 
   <section class="project">
     <a href="meal booking application.html" target="_blank" class="card">
-      <div class="icon">🍽️</div>
+      <div class="icon">
+        <img src="egg-fried.svg" alt="Project link icon">
+      </div>
       <h3>MEAL BOOKING APP</h3>
       <p>A basic meal booking interface.</p>
     </a>
@@ -266,7 +353,9 @@
 
   <section class="project">
     <a href="NEWSPAPER.html" target="_blank" class="card">
-      <div class="icon">📰</div>
+      <div class="icon">
+        <img src="newspaper.svg" alt="Project link icon">
+      </div>
       <h3>NEWSPAPER</h3>
       <p>A newspaper-style webpage layout.</p>
     </a>
@@ -274,7 +363,9 @@
 
   <section class="project">
     <a href="registration form.html" target="_blank" class="card">
-      <div class="icon">🧾</div>
+      <div class="icon">
+        <img src="card-checklist.svg" alt="Project link icon">
+      </div>
       <h3>REGISTRATION FORM</h3>
       <p>User registration form example.</p>
     </a>
@@ -282,7 +373,9 @@
 
   <section class="project">
     <a href="Styled_Links_Assignment.html" target="_blank" class="card">
-      <div class="icon">🎨</div>
+      <div class="icon">
+        <img src="link-45deg.svg" alt="Project link icon">
+      </div>
       <h3>STYLED LINKS</h3>
       <p>Hover effects and styled hyperlinks.</p>
     </a>
@@ -290,7 +383,9 @@
 
   <section class="project">
     <a href="Semantic_elements_assignment.html" target="_blank" class="card">
-      <div class="icon">🏗️</div>
+      <div class="icon">
+        <img src="alphabet.svg" alt="Project link icon">
+      </div>
       <h3>SEMANTIC ELEMENTS</h3>
       <p>Using proper semantic HTML tags.</p>
     </a>
@@ -298,7 +393,9 @@
 
   <section class="project">
     <a href="form_returns.html" target="_blank" class="card">
-      <div class="icon">🔁</div>
+      <div class="icon">
+        <img src="card-checklist.svg" alt="Project link icon">
+      </div>
       <h3>FORM RETURNS</h3>
       <p>Understanding form submission behavior.</p>
     </a>
@@ -306,7 +403,9 @@
 
   <section class="project">
     <a href="Portfolio_assignment.html" target="_blank" class="card">
-      <div class="icon">🧠</div>
+      <div class="icon">
+        <img src="person-lines-fill.svg" alt="Project link icon">
+      </div>
       <h3>PORTFOLIO ASSIGNMENT</h3>
       <p>An early personal portfolio attempt.</p>
     </a>
@@ -314,11 +413,18 @@
 
   <section class="project">
     <a href="CALCULATOR!!.html" target="_blank" class="card">
-      <div class="icon">🧮</div>
+      <div class="icon">
+        <img src="calculator.svg" alt="Project link icon">
+      </div>
       <h3>CALCULATOR</h3>
       <p>A working calculator built in HTML.</p>
     </a>
   </section>
+
+  <section class="closing">
+    <p>A quiet archive of learning.</p>
+  </section>
+
 
   <button id="musicBtn">♪</button>
 
@@ -333,12 +439,15 @@
         music.volume = 0.3;
         music.play();
         btn.classList.add("playing");
+        btn.textContent = "❚❚"; // pause icon
       } else {
         music.pause();
         btn.classList.remove("playing");
+        btn.textContent = "♪"; // music icon
       }
     };
   </script>
+
 
 
 </body>
