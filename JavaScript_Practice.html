@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        .add-class {
+            background-color: #DDD;
+        }
+
+        .replace-class {
+            border: 2px solid blue;
+            border-radius: 5px;
+        }
+
+        .toggle-class {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #mouse-event-block {
+            width: 200px;
+            height: 100px;
+            border: 1px solid grey;
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #hover-box {
+            width: 150px;
+            height: 150px;
+            border: 2px solid grey;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            z-index: 1;
+        }
+
+        .hovered {
+            transform: scale(1.1);
+            background-color: lightblue;
+            transition: ease-in transform 0.3s, ease-in background-color 0.3s;
+        }
+
+        #counter-btn-1,
+        #counter-btn-2,
+        #counter-btn-3,
+        #counter-btn-4 {
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="msg">Level 0: DOM Foundations</h1>
+    <h3>You learn:<br><br>
+        querySelector<br>
+        querySelectorAll<br>
+        textContent<br>
+        style<br>
+        classList<br>
+    </h3>
+    <button id="btn">This is a button</button>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <p id="change">Text to be changed on page load.</p>
+    <p id="button-click-msg">Waiting for button click...</p>
+    <p id="counter-para-1"></p>
+    <button id="change-btn">Change above Text</button><br><br>
+    <button id="class-btn">Add Class to Boxes</button><br>
+    <button id="remove-class-btn">Remove Class from Boxes</button><br>
+    <button id="replace-class-btn">Replace Class on Boxes</button><br>
+    <button id="toggle-class-btn">Toggle Class on Boxes</button><br><br>
+    <h1>Level 1: EVENTS</h1>
+    <h3>You learn:<br><br>
+        addEventListener (already done in level 0)<br>
+        click (done), mouseenter, mouseleave<br>
+        keydown<br>
+    </h3>
+    <div id="mouse-event-block">Enter and leave the cursor from the mouse-event-block</div>
+    <input type="text" id="key-input" placeholder="Type something here!"><br>
+    <p id="key-press-msg">No key pressed yet.</p>
+    <h2>Mini Practice</h2>
+    <p>Practice 1: Hover box</p>
+    <div id="hover-box">Hover over me!</div>
+    <p>Practice 2: Keyboard Color Switch</p>
+    <p>Press 'd' on keyboard for dark mode and 'l' for light mode.</p>
+    <p>Practice 3: Click Counter</p>
+    <p>Click the buttons below to count clicks:</p>
+    <button id="counter-btn-1">-</button>
+    <span id="counter-para-2">0</span>
+    <button id="counter-btn-2">+</button>
+    <h1>Level 2: STATE & CONDITIONS</h1>
+    <h3>You learn:<br><br>
+        Variables as state<br>
+        if / else<br>
+        Boolean logic<br>
+    </h3>
+    <p id="toggle-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <button id="toggle-para-btn">Toggle (show/hide) Paragraph</button><br>
+    <button id="theme-switcher">Dark Mode</button><br><br>
+    <p>Below counter resets after 10:</p>
+    <button id="counter-btn-3">-</button>
+    <span id="counter-para-3">0</span>
+    <button id="counter-btn-4">+</button>
+    <script>
+        // JavaScript code to select elements
+
+        // querySelector grabs a single element with the id given
+        const heading = document.querySelector("#msg"); // Grabs the h1 element 
+        const button = document.querySelector("#btn"); // Grabs the button element
+
+        // querySelectorAll grabs all elements with the class given
+        const boxes = document.querySelectorAll(".box"); // Grabs all elements with class "box"
+
+        boxes.forEach(box => { // first give the querySelectorAll variable a forEach loop.
+            // Inside the brackets, create an arrow function that takes in the class 'box' specified before as a parameter
+            box.textContent = "I am a box";
+            box.style.color = "blue";
+        }); //end with semicolon
+
+        // forEach explanation:
+        // The forEach method is used to iterate over each element in a NodeList (like the one returned by querySelectorAll).
+        // It allows you to execute a provided function once for each element in the list. (here, the list is the collection of'boxes')
+        // Read it like English:
+        // "For each box, run this function"
+        // forEach takes in a function as its argument. In this case, we are using an arrow function that takes 'box' as a parameter.
+        // Inside the function, we set the textContent and style of each box.
+
+        //forEach practice:
+        const nums = [1, 2, 3, 4, 5];
+        nums.forEach(num => {
+            console.log(num);
+        });
+
+        const paragraph = document.querySelector("#change");
+        paragraph.textContent = "The text was changed on page load!";
+
+        const buttonMsg = document.querySelector("#button-click-msg");
+        const changeBtn = document.querySelector("#change-btn");
+        // Now we'll deal with events which run when stuff is clicked or interacted with
+        // For this, we'll have to use an event listener.
+        changeBtn.addEventListener("click", () => { // addEventListener takes in two parameters: the event to listen for, and a function to run when that event happens
+            // Here, we are listening for a "click" event on the changeBtn element.
+            // the function, when run, will change the textContent of buttonMsg!
+            // Read it like: "When changeBtn is clicked, run run a function ('()') that does('=>') the following:"...
+            buttonMsg.textContent = "Button was clicked!";
+        });
+
+        // Now, we added a para named counter-para. Let's make a counter that counts the number of clicks on a button and displays it in that para.
+        let count1 = 0; // first, we create a variable count to keep track of the number of clicks
+        const counterPara1 = document.querySelector("#counter-para-1"); // select the para with id counter-para
+        changeBtn.addEventListener("click", () => { // add an event listener to the same button from before, but now it also counts clicks
+            count1++; //increment the count variable by 1 each time the button is clicked
+            counterPara1.textContent = "No. of clicks: " + count1; //Display the count in the para
+        });
+
+        // classList practice:
+        // The word 'box' in the div blocks is a label of a class.
+        // The list of classes an element has can be accessed using the classList property.
+        // we can use classList to add, remove, replace or toggle classes on an element.
+        // Let's practice by adding a new class to the boxes when the button is clicked.
+        const classBtn = document.querySelector("#class-btn");
+        const removeClassBtn = document.querySelector("#remove-class-btn");
+        const replaceClassBtn = document.querySelector("#replace-class-btn");
+        const toggleClassBtn = document.querySelector("#toggle-class-btn");
+        classBtn.addEventListener("click", () => {
+            boxes.forEach(box => {
+                box.classList.add("add-class"); // adds the class 'add-class' to each box when the button is clicked.
+            });
+        });
+        // So now, the div is now <div class="box add-class">...</div> when the button is clicked.
+        removeClassBtn.addEventListener("click", () => {
+            boxes.forEach(box => {
+                box.classList.remove("add-class"); // removes the class 'add-class' from each box when the button is clicked.
+            });
+        });
+        replaceClassBtn.addEventListener("click", () => {
+            boxes.forEach(box => {
+                box.classList.replace("add-class", "replace-class"); // replaces the class 'add-class' with 'replace-class' on each box when the button is clicked.
+            });
+        });
+        toggleClassBtn.addEventListener("click", () => {
+            boxes.forEach(box => {
+                box.classList.toggle("toggle-class"); // toggles the class 'toggle-class' on each box when the button is clicked.
+            });
+        });
+
+        // Level 1: EVENTS
+        const mouseEventBlock = document.querySelector("#mouse-event-block");
+        const keyInput = document.querySelector("#key-input");
+        const keyPressMsg = document.querySelector("#key-press-msg");
+        mouseEventBlock.addEventListener("mouseenter", () => {
+            mouseEventBlock.style.backgroundColor = "lightgreen";
+            mouseEventBlock.textContent = "Mouse Entered!";
+        });
+        mouseEventBlock.addEventListener("mouseleave", () => {
+            mouseEventBlock.style.backgroundColor = "";
+            mouseEventBlock.textContent = "Enter and leave the cursor from the mouse-event-block";
+        });
+        keyInput.addEventListener("keydown", (e) => { // 'e' is the event object that contains information about the event. Like a parameter.
+            keyPressMsg.textContent = "You pressed: " + e.key;
+        });
+
+        // Mini Practice 1: Hover box
+        const hoverBox = document.querySelector("#hover-box");
+        hoverBox.addEventListener("mouseenter", () => {
+            hoverBox.classList.add("hovered");
+        });
+        hoverBox.addEventListener("mouseleave", () => {
+            hoverBox.classList.remove("hovered");
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === 'd') {
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+            }
+            else if (e.key === 'l') {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+            }
+        });
+        // Mini Practice 3: Click Counter
+        let count2 = 0;
+        const counterPara2 = document.querySelector("#counter-para-2");
+        const counterBtn1 = document.querySelector("#counter-btn-1");
+        const counterBtn2 = document.querySelector("#counter-btn-2");
+        counterBtn1.addEventListener("click", () => {
+            count2--;
+            counterPara2.textContent = count2;
+        });
+        counterBtn2.addEventListener("click", () => {
+            count2++;
+            counterPara2.textContent = count2;
+        });
+
+        // Level 2: STATE & CONDITIONS
+        const togglePara = document.querySelector("#toggle-para");
+        const toggleParaBtn = document.querySelector("#toggle-para-btn");
+        let isParaVisible = true;
+        toggleParaBtn.addEventListener("click", () => {
+            if (isParaVisible === true) {
+                togglePara.style.display = "none";
+                isParaVisible = false;
+            } else {
+                togglePara.style.display = "block";
+                isParaVisible = true;
+            }
+        });
+        const themeSwitcher = document.querySelector("#theme-switcher");
+        let isDarkMode = false;
+        themeSwitcher.addEventListener("click", () => {
+            if (isDarkMode === false) {
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+                isDarkMode = true;
+            } else {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+                isDarkMode = false;
+            }
+        });
+        let count3 = 0;
+        const counterPara3 = document.querySelector("#counter-para-3");
+        const counterBtn3 = document.querySelector("#counter-btn-3");
+        const counterBtn4 = document.querySelector("#counter-btn-4");
+        counterBtn3.addEventListener("click", () => {
+            count3--;
+            if (count3 < 0) {
+                count3 = 10;
+            }
+            counterPara3.textContent = count3;
+        });
+        counterBtn4.addEventListener("click", () => {
+            count3++;
+            if (count3 > 10) {
+                count3 = 0;
+            }
+            counterPara3.textContent = count3;
+        });
+    </script>
+</body>
+
+</html>
